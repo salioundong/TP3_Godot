@@ -6,15 +6,16 @@
 height = 45.0
 
 [node name="Player" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -7)
-rotation = 0.0750492
-shape = SubResource("CapsuleShape2D_125ox")
+platform_floor_layers = 4278190083
 
 [node name="Joueur" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0.0941176, 1)
 light_mask = 0
-position = Vector2(9, 201)
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_vrsls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_125ox")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
