@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://botojytb3hmev"]
+
+[ext_resource type="Texture2D" uid="uid://bq8lxuhr4if0b" path="res://Asset/joueur.png" id="1_vrsls"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_125ox"]
+height = 45.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -7)
+rotation = 0.0750492
+shape = SubResource("CapsuleShape2D_125ox")
+
+[node name="Joueur" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 0.0941176, 1)
+light_mask = 0
+position = Vector2(9, 201)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_vrsls")
