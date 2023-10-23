@@ -1,23 +1,154 @@
-[gd_scene load_steps=4 format=3 uid="uid://botojytb3hmev"]
+[gd_scene load_steps=21 format=3 uid="uid://botojytb3hmev"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ayidp"]
-[ext_resource type="Texture2D" uid="uid://bq8lxuhr4if0b" path="res://Asset/joueur.png" id="1_vrsls"]
+[ext_resource type="Texture2D" uid="uid://cp1lh1mijk1u3" path="res://TP3_Godot/Sports Pack/PNG/Special/characterSpecial (2).png" id="2_lak8t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_125ox"]
 height = 45.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkbef"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(0, 0, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge7av"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(5, 0, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ql7k"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(10, 0, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uit2"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(15, 0, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00djl"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(0, 7, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rptb"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(5, 7, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuiqf"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(10, 7, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pbht"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(15, 7, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfxwa"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(0, 14, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1amf0"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(5, 14, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l066h"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(10, 14, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exfgq"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(15, 14, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1myl7"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(0, 21, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xsl2"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(5, 21, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55tia"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(10, 21, 5, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgllt"]
+atlas = ExtResource("2_lak8t")
+region = Rect2(15, 21, 5, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3040"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkbef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge7av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ql7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uit2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00djl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rptb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuiqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pbht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfxwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1amf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l066h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exfgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1myl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xsl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55tia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgllt")
+}],
+"loop": true,
+"name": &"joueur",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 platform_floor_layers = 4278190083
 script = ExtResource("1_ayidp")
 
 [node name="Joueur" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0.0941176, 1)
 light_mask = 0
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("1_vrsls")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_lak8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_125ox")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d3040")
+animation = &"new_animation"
