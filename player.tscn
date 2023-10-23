@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://botojytb3hmev"]
+[gd_scene load_steps=4 format=3 uid="uid://botojytb3hmev"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_ayidp"]
 [ext_resource type="Texture2D" uid="uid://bq8lxuhr4if0b" path="res://Asset/joueur.png" id="1_vrsls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_125ox"]
@@ -7,6 +8,7 @@ height = 45.0
 
 [node name="Player" type="CharacterBody2D"]
 platform_floor_layers = 4278190083
+script = ExtResource("1_ayidp")
 
 [node name="Joueur" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0.0941176, 1)
