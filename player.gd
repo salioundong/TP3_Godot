@@ -1,25 +1,39 @@
 extends CharacterBody2D
 
-
-@export var speed = 30
-@export var acceleration = 0.1
+@export var speed = 150
+@export var acceleration = 0.7
 @export var friction = 0.05
+
+@onready var animation = $AnimationPlayer
 
 func _ready():
 	pass
-	
 
-func _physics_process(delta):
+func _physics_process(_delta):
+	var input_direction = get_input_direction()
+	update_movement(input_direction)
+	update_animation(input_direction)
+
+func get_input_direction():
 	var direction = Vector2()
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
-	direction = direction.normalized()
-	
-	if(direction.length() > 0):
-		velocity = velocity.lerp( direction * speed, acceleration)
-	else :
-		velocity = velocity.lerp( Vector2.ZERO, friction)
+	return direction.normalized()
 
-
+func update_movement(direction):
+	velocity.x = direction.x * speed
+	velocity.y = direction.y * speed
 	move_and_slide()
+
+	if direction != Vector2.ZERO:
+		look_at_direction(direction)
+
+func look_at_direction(direction):
+	if direction != Vector2.ZERO:
+		look_at(direction)
+
+func update_animation(direction):
+	if direction != Vector2.ZERO:
+		animation.play("run")
+	else:
+		animation.play("idle")
