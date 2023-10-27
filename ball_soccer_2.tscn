@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxeuossvaglbd"]
+
+[ext_resource type="Script" path="res://ball_soccer_2.gd" id="1_ox5ss"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_orv6p"]
+radius = 5.0
+height = 10.0
+
+[node name="BallSoccer2" type="RigidBody2D"]
+script = ExtResource("1_ox5ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_orv6p")

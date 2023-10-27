@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckv67syi0f7hx"]
+
+[ext_resource type="Texture2D" uid="uid://b0fshpd4ne4i7" path="res://TP3_Godot/Sports Pack/PNG/Equipment/ball_soccer3.png" id="1_pdg7o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wylqt"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wylqt")
+
+[node name="Ball" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_pdg7o")

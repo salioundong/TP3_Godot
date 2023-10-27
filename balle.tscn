@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctibn6mxwngx8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01tks"]
+
+[node name="BallSoccer2" type="RigidBody2D"]
+position = Vector2(165, 166)
+gravity_scale = -0.37
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_01tks")

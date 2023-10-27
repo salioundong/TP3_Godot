@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 150
-@export var acceleration = 0.7
+@export var speed = 50
+@export var acceleration = 0.1
 @export var friction = 0.05
 
 @onready var animation = $AnimationPlayer
@@ -21,8 +21,7 @@ func get_input_direction():
 	return direction.normalized()
 
 func update_movement(direction):
-	velocity.x = direction.x * speed
-	velocity.y = direction.y * speed
+	velocity = direction * speed
 	move_and_slide()
 
 	if direction != Vector2.ZERO:
@@ -30,7 +29,7 @@ func update_movement(direction):
 
 func look_at_direction(direction):
 	if direction != Vector2.ZERO:
-		look_at(direction)
+		rotation = direction.angle()
 
 func update_animation(direction):
 	if direction != Vector2.ZERO:
