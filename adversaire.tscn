@@ -1,3 +1,91 @@
-[gd_scene format=3 uid="uid://c4w3p1w65gipi"]
+[gd_scene load_steps=9 format=3 uid="uid://c4w3p1w65gipi"]
+
+[ext_resource type="Texture2D" uid="uid://clnwswj1oeidc" path="res://Asset/my_players.png" id="1_r5uc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3x31"]
+size = Vector2(7, 10)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pvcf2"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5os7w"]
+states/End/position = Vector2(596, 110)
+states/run/node = SubResource("AnimationNodeAnimation_pvcf2")
+states/run/position = Vector2(414, 91)
+
+[sub_resource type="Animation" id="Animation_0f75q"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MyPlayers:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1k05"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MyPlayers:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cpb15"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MyPlayers:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 1), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4j5f"]
+_data = {
+"RESET": SubResource("Animation_0f75q"),
+"idle": SubResource("Animation_d1k05"),
+"run": SubResource("Animation_cpb15")
+}
 
 [node name="Adversaire" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_a3x31")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_5os7w")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g4j5f")
+}
+
+[node name="MyPlayers" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_r5uc3")
+hframes = 4
+vframes = 6
+frame = 5

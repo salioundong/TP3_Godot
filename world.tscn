@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=10 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
 [ext_resource type="PackedScene" uid="uid://botojytb3hmev" path="res://player.tscn" id="2_d4fdg"]
 [ext_resource type="PackedScene" uid="uid://ckv67syi0f7hx" path="res://rigid_body_2d.tscn" id="3_3dmg3"]
 [ext_resource type="Shader" path="res://blink.gdshader" id="4_lym22"]
+[ext_resource type="PackedScene" uid="uid://c4w3p1w65gipi" path="res://adversaire.tscn" id="5_3y5tl"]
+[ext_resource type="Script" path="res://adversaire.gd" id="6_u7kda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0crg7"]
 texture = ExtResource("1_k5lrj")
@@ -288,3 +290,7 @@ position = Vector2(241, 115)
 material = SubResource("ShaderMaterial_kn70s")
 position = Vector2(100, 135)
 platform_floor_layers = 4278190081
+
+[node name="Adversaire" parent="." instance=ExtResource("5_3y5tl")]
+position = Vector2(156, 23)
+script = ExtResource("6_u7kda")
