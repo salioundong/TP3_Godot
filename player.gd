@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 50
+@export var speed = 20
 @export var acceleration = 0.1
 @export var friction = 0.05
 
@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 
+var direction = Vector2.ZERO
 var is_colliding_with_ballon = false
 var ballon = null
 
@@ -18,9 +19,15 @@ func _physics_process(_delta):
 	var input_direction = get_input_direction()
 	update_movement(input_direction)
 	update_animation(input_direction)
-
+	
+	if input_direction:
+		direction = input_direction
+		
 	if is_colliding_with_ballon:
 		control_ballon(input_direction)
+	else:
+		update_movement(input_direction)
+		update_animation(input_direction)
 
 func _on_collision_entered(body):
 	if body.name == "Ballon":
@@ -62,3 +69,6 @@ func control_ballon(input_direction):
 	if ballon:
 		var force = BALL_FORCE * input_direction
 		ballon.apply_impulse(Vector2.ZERO, force)
+	else:
+		update_movement(input_direction)
+		update_animation(input_direction)	
