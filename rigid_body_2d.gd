@@ -17,7 +17,6 @@ func _physics_process(_delta):
 		global_position = player.global_position + player.direction * Vector2(6,8)
 
 		
-		
 
-		# Si une collision est détectée, ajuster la position du ballon
+
 		

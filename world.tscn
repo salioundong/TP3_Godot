@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqtxug2mo8nc4"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
 [ext_resource type="PackedScene" uid="uid://botojytb3hmev" path="res://player.tscn" id="2_d4fdg"]
 [ext_resource type="PackedScene" uid="uid://ckv67syi0f7hx" path="res://rigid_body_2d.tscn" id="3_3dmg3"]
 [ext_resource type="Shader" path="res://blink.gdshader" id="4_lym22"]
 [ext_resource type="PackedScene" uid="uid://c4w3p1w65gipi" path="res://adversaire.tscn" id="5_3y5tl"]
-[ext_resource type="Script" path="res://adversaire.gd" id="6_u7kda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0crg7"]
 texture = ExtResource("1_k5lrj")
@@ -275,8 +275,9 @@ shader = ExtResource("4_lym22")
 
 [node name="World" type="Node2D"]
 position = Vector2(-53, 4)
+script = ExtResource("1_jsw0v")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Terrain" type="TileMap" parent="."]
 position = Vector2(-350, 120.333)
 scale = Vector2(1.24, 1.24)
 tile_set = SubResource("TileSet_8r3q8")
@@ -288,9 +289,13 @@ position = Vector2(241, 115)
 
 [node name="Player" parent="." instance=ExtResource("2_d4fdg")]
 material = SubResource("ShaderMaterial_kn70s")
-position = Vector2(100, 135)
+position = Vector2(218, 115)
 platform_floor_layers = 4278190081
 
 [node name="Adversaire" parent="." instance=ExtResource("5_3y5tl")]
 position = Vector2(156, 23)
-script = ExtResource("6_u7kda")
+platform_floor_layers = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
