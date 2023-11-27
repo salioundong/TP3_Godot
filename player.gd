@@ -11,40 +11,44 @@ var SHOOT_FORCE: float = 500.0
 
 var direction = Vector2.ZERO
 var is_colliding_with_ballon = false
-@onready var ballon = $"../Ballon"
+var ballon = null
 
 func _physics_process(_delta):
 	var input_direction = get_input_direction()
 	
-	update_movement(input_direction)
-	shoot_ballon(_delta)
-	update_animation(input_direction)
 	
-	#f Input.is_action_just_pressed("tirer"):
+	if Input.is_action_just_pressed("tirer"):
+		print("space")
+		shoot()		
+	elif is_colliding_with_ballon:
+		control_ballon(input_direction)
+	else:
+		if input_direction:
+			direction = input_direction
+		
+		update_movement(input_direction)
+		update_animation(input_direction)
+		
 	
-	
-func shoot_ballon(_delta):
-	var input_direction = get_input_direction()
-	velocity.x = input_direction.x * speed
-	velocity.y = input_direction.y * speed
-	
-
-	
-	var collision = move_and_collide(velocity * _delta)
-	if collision:
-		ballon.player = null
-		print("tir")
-		ballon.apply_impulse(collision.get_normal() * -SHOOT_FORCE)
+			
+func shoot():
+	if ballon:
+		var ballon_direction = ballon.global_position - global_position
+		ballon_direction = ballon_direction.normalized()
+		ballon.apply_impulse(ballon_direction)
+	else:
+		update_movement(direction)
+		update_animation(direction)
 		
 func _on_collision_entered(body):
 	if body.name == "Ballon":
 		is_colliding_with_ballon = true
 		ballon = body
-		
+
 func _on_collision_exited(body):
 	if body.name == "Ballon":
 		is_colliding_with_ballon = false
-		#ballon = null
+		ballon = null
 
 func get_input_direction():
 	var direction = Vector2()
@@ -58,9 +62,7 @@ func update_movement(direction):
 		var col = get_slide_collision(colidx).get_collider()
 		if col is Ballon:
 			col.player = self
-			
-
-	#move_and_slide()
+	move_and_slide()
 	if direction != Vector2.ZERO:
 		look_at_direction(direction)
 
@@ -76,7 +78,6 @@ func update_animation(direction):
 
 func control_ballon(input_direction):
 	if ballon:
-		print("Ballon")
 		var force = BALL_FORCE * input_direction
 		ballon.apply_impulse(Vector2.ZERO, force)
 	else:
@@ -84,4 +85,5 @@ func control_ballon(input_direction):
 		update_animation(input_direction)
 
 
+	
 

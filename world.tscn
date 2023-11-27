@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=12 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
@@ -273,6 +273,13 @@ sources/0 = SubResource("TileSetAtlasSource_0crg7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kn70s"]
 shader = ExtResource("4_lym22")
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_en3xl"]
+length = 30.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_140pt"]
+a = Vector2(-2, -16)
+b = Vector2(-2, 15)
+
 [node name="World" type="Node2D"]
 position = Vector2(-53, 4)
 script = ExtResource("1_jsw0v")
@@ -293,9 +300,43 @@ position = Vector2(218, 115)
 platform_floor_layers = 4278190081
 
 [node name="Adversaire" parent="." instance=ExtResource("5_3y5tl")]
-position = Vector2(156, 23)
+position = Vector2(241, 24)
 platform_floor_layers = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Label" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 10.0
+offset_right = 124.0
+offset_bottom = 33.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="ButPlayer" type="Area2D" parent="."]
+position = Vector2(55, 113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButPlayer"]
+position = Vector2(10, -14)
+shape = SubResource("SeparationRayShape2D_en3xl")
+
+[node name="ButAdversaire" type="Area2D" parent="."]
+position = Vector2(426, 118)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButAdversaire"]
+position = Vector2(-10, -3)
+shape = SubResource("SegmentShape2D_140pt")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Timer" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 4.0
+offset_right = 123.0
+offset_bottom = 27.0
+text = "00 : 00"
+
+[node name="Timer2" type="Timer" parent="Control"]
+
+[connection signal="timeout" from="Control/Timer2" to="." method="_on_timer_timeout"]
