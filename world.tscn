@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=13 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckv67syi0f7hx" path="res://rigid_body_2d.tscn" id="3_3dmg3"]
 [ext_resource type="Shader" path="res://blink.gdshader" id="4_lym22"]
 [ext_resource type="PackedScene" uid="uid://c4w3p1w65gipi" path="res://adversaire.tscn" id="5_3y5tl"]
+[ext_resource type="PackedScene" uid="uid://t2ob1gqccyas" path="res://pause_menu.tscn" id="7_quc8o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0crg7"]
 texture = ExtResource("1_k5lrj")
@@ -296,11 +297,11 @@ position = Vector2(241, 115)
 
 [node name="Player" parent="." instance=ExtResource("2_d4fdg")]
 material = SubResource("ShaderMaterial_kn70s")
-position = Vector2(218, 115)
+position = Vector2(179, 114)
 platform_floor_layers = 4278190081
 
 [node name="Adversaire" parent="." instance=ExtResource("5_3y5tl")]
-position = Vector2(241, 24)
+position = Vector2(294, 116)
 platform_floor_layers = 1
 
 [node name="Label" type="Label" parent="."]
@@ -335,8 +336,14 @@ offset_left = 83.0
 offset_top = 4.0
 offset_right = 123.0
 offset_bottom = 27.0
-text = "00 : 00"
+text = "02 : 00"
 
 [node name="Timer2" type="Timer" parent="Control"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_quc8o")]
+visible = false
+offset_left = -72.0
+offset_right = 549.0
+offset_bottom = 236.0
 
 [connection signal="timeout" from="Control/Timer2" to="." method="_on_timer_timeout"]

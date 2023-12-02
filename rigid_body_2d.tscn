@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://rigid_body_2d.gd" id="1_sotax"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_16207"]
+rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e2iy"]
 radius = 4.0

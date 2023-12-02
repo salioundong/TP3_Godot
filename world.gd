@@ -4,11 +4,14 @@ var startTime = 60
 var sec = startTime
 var minute = 1
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$Control/Timer2.start()
 
+
+func _process(_delta):
+	pass
 	
+
+func _ready():
+	$Control/Timer2.start()	
 	pass
 
 func game_time():
@@ -23,12 +26,6 @@ func game_time():
 		else:
 			$Control/Timer2.stop()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	
-	
-	
-	
-	pass
 
 
 func _on_timer_timeout():
