@@ -13,8 +13,4 @@ func _physics_process(_delta):
 	pass
 
 
-#func apply_force(force):
-#	acceleration += force
-
-
 		

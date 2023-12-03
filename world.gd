@@ -1,6 +1,6 @@
 extends Node2D
 
-var startTime = 1
+var startTime = 60
 var sec = startTime
 var minute = 1
 		
