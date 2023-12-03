@@ -38,7 +38,7 @@ theme_override_constants/v_separation = 10
 
 [node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 20
 text = "En pause"
 
 [node name="button_reprise" type="Button" parent="GridContainer"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_ip7ai"]
 [ext_resource type="AudioStream" uid="uid://cbv6uc0fssvoo" path="res://Musique/Shakira - Waka Waka (This Time for Africa) (The Official 2010 FIFA World Cup Song).mp3" id="2_idxge"]
-[ext_resource type="Texture2D" uid="uid://b54513gb8d673" path="res://Asset/satde.jpg" id="3_570wn"]
+[ext_resource type="Texture2D" uid="uid://b54513gb8d673" path="res://Asset/stade.jpg" id="2_rjeo4"]
 
 [sub_resource type="FontFile" id="FontFile_fqhsq"]
 cache/0/16/0/ascent = 0.0
@@ -32,7 +32,7 @@ script = ExtResource("1_ip7ai")
 [node name="Stade" type="Sprite2D" parent="."]
 position = Vector2(29.0001, 24.5)
 scale = Vector2(1.67969, 1.37749)
-texture = ExtResource("3_570wn")
+texture = ExtResource("2_rjeo4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

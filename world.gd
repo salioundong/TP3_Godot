@@ -1,13 +1,12 @@
 extends Node2D
 
-var startTime = 60
+var startTime = 1
 var sec = startTime
 var minute = 1
 		
 
 func _process(_delta):
-	pass
-	
+	pass	
 
 func _ready():
 	$Control/Timer2.start()	
@@ -24,11 +23,8 @@ func game_time():
 			$Control/Timer.text = str(minute) + ":" + str(sec)
 		else:
 			$Control/Timer2.stop()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
+			get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
 
 func _on_timer_timeout():
 	game_time()
 	pass # Replace with function body.
-
-

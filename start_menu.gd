@@ -36,7 +36,6 @@ func show_and_hide(first, second):
 	first.show()
 	second.hide()	
 
-
 func _on_video_pressed():
 	show_and_hide(video, options)
 
@@ -53,8 +52,6 @@ func _on_full_screen_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
- 
-
 
 func _on_back_video_pressed():
 	show_and_hide(options, video)

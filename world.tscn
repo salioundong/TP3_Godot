@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=14 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://blink.gdshader" id="4_lym22"]
 [ext_resource type="PackedScene" uid="uid://c4w3p1w65gipi" path="res://adversaire.tscn" id="5_3y5tl"]
 [ext_resource type="PackedScene" uid="uid://t2ob1gqccyas" path="res://pause_menu.tscn" id="7_quc8o"]
+[ext_resource type="PackedScene" uid="uid://cryn04buh1qqg" path="res://fin_de_jeu.tscn" id="8_xqhvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0crg7"]
 texture = ExtResource("1_k5lrj")
@@ -344,5 +345,10 @@ text = "02 : 00"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_quc8o")]
 process_mode = 3
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="fin_de_jeu" parent="CanvasLayer2" instance=ExtResource("8_xqhvm")]
+visible = false
 
 [connection signal="timeout" from="Control/Timer2" to="." method="_on_timer_timeout"]
