@@ -284,6 +284,7 @@ b = Vector2(-2, 15)
 
 [node name="World" type="Node2D"]
 position = Vector2(-53, 4)
+scale = Vector2(1.03053, 1.01896)
 script = ExtResource("1_jsw0v")
 
 [node name="Terrain" type="TileMap" parent="."]

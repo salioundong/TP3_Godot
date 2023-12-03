@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var push_force = 1.0
 var shoot_force: float = 500.0 
 var shoot_force_multiplier: float = 2.0 
-var max_distance_for_shoot: float = 50.0  # Ajustez cette valeur selon vos besoins
+var max_distance_for_shoot: float = 50.0  
 
 @onready var animation = $AnimationPlayer
 
@@ -25,11 +25,9 @@ func _physics_process(delta):
 			tir = false
 			tir_temps = 0
 			
-	# Gérer la collision avec le Ballon
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is Ballon:
-			# Vérifier la distance avant de permettre le tir
 			if tir and global_position.distance_to(c.get_collider().global_position) < max_distance_for_shoot:
 				print('space')
 				var tir_force = velocity.normalized() * shoot_force * shoot_force_multiplier
