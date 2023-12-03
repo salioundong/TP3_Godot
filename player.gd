@@ -6,8 +6,6 @@ var SHOOT_FORCE: float = 500.0
 
 @onready var animation = $AnimationPlayer
 
-
-
 var direction = Vector2.ZERO
 
 var tir = false

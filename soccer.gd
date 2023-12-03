@@ -3,7 +3,8 @@ extends Node2D
 var startTime = 60
 var sec = startTime
 var minute = 1
-		
+
+
 
 func _process(_delta):
 	pass
