@@ -22,4 +22,9 @@ shape = SubResource("CircleShape2D_5e2iy")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_pdg7o")
 
+[node name="DetecteurBut" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetecteurBut"]
+shape = SubResource("CircleShape2D_5e2iy")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

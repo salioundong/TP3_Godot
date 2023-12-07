@@ -34,8 +34,8 @@ func _physics_process(delta):
 				tir = false
 			else:	
 				c.get_collider().apply_impulse(velocity * push_force)
-	move_and_slide()
-
+	#move_and_slide()
+	
 	update_animation()
 	if direction != Vector2.ZERO:
 		look_at_direction()

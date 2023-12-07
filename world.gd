@@ -6,7 +6,9 @@ var minute = 1
 		
 
 func _process(_delta):
-	pass	
+	if Input.is_action_just_pressed("cheat"):
+		$Control/Timer2.stop()
+		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
 
 func _ready():
 	$Control/Timer2.start()	
@@ -27,4 +29,8 @@ func game_time():
 
 func _on_timer_timeout():
 	game_time()
+	pass # Replace with function body.
+
+
+func _on_but_player_area_entered(area):
 	pass # Replace with function body.
