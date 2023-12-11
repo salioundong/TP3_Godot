@@ -3,7 +3,10 @@ extends Node2D
 var startTime = 60
 var sec = startTime
 var minute = 1
-		
+
+var butJoueur = 0
+var butAdversaire = 0
+@onready var ballon = Ballon	
 
 func _process(_delta):
 	if Input.is_action_just_pressed("cheat"):
@@ -32,5 +35,12 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_but_player_area_entered(area):
-	pass # Replace with function body.
+func _on_but_player_area_entered(_body):
+	butAdversaire += 1
+	$ScoreControlAdversaire/ScoreAdversaire.text = str(butAdversaire)
+
+
+
+func _on_but_adversaire_area_entered(_body):
+	butJoueur += 1
+	$ScoreControlPlayer/ScorePlayer.text = str(butJoueur)
