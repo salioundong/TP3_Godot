@@ -2,7 +2,7 @@
 
 > Un jeu de Saliou Ndong
 
-Ayant toujours eu un intérêt particulier pour le soccer, j'ai décidé de faire ce jeu et d'y présenter quelques concepts dans ce domaine. Le but est de contrôler le ballon et de faire des buts. Il y'a un adversaire qui essaie lui aussi de faire des buts. Une partie dure `02 minutes` et le premier qui réussit à faire 3 buts gagne la partie.
+Ayant toujours eu un intérêt particulier pour le soccer, j'ai décidé de faire ce jeu et d'y présenter quelques concepts dans ce domaine. Le but est de contrôler le ballon et de faire des buts. Il y'a un adversaire qui essaie lui aussi de faire des buts. Une partie dure `02 minutes` et le premier qui réussit à faire `3 buts` gagne la partie.
 
 ## Contrôle du ballon
 Dans le concept du soccer, le ballon doit être libre et donc tous les joueurs peuvent y avoir accès. Je pensais trop compliqué au début en rattachant le ballon au joueur. C'est ainsi que mon professeur `Nicolas Bourre` m'a fait comprendre comment je pourrais m'y prendre.
