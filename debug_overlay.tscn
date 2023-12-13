@@ -1,7 +1,16 @@
-[gd_scene format=3 uid="uid://b7v3im3b40tav"]
+[gd_scene load_steps=2 format=3 uid="uid://b7v3im3b40tav"]
+
+[ext_resource type="Script" path="res://debug_overlay.gd" id="1_ujbl4"]
 
 [node name="DebugOverlay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_ujbl4")
+
+[node name="debugLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

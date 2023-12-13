@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=15 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://t2ob1gqccyas" path="res://pause_menu.tscn" id="7_quc8o"]
 [ext_resource type="PackedScene" uid="uid://cryn04buh1qqg" path="res://fin_de_jeu.tscn" id="8_xqhvm"]
 [ext_resource type="AudioStream" uid="uid://cg8yn7jfs6qpq" path="res://Musique/celebration.mp3" id="9_w53cw"]
+[ext_resource type="PackedScene" uid="uid://b7v3im3b40tav" path="res://debug_overlay.tscn" id="10_bp8ac"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_x0gst"]
 a = Vector2(290.745, 2.64056)
@@ -91,14 +92,14 @@ text = "02 : 00"
 
 [node name="Timer2" type="Timer" parent="Control"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayerPauseMenu" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_quc8o")]
+[node name="PauseMenu" parent="CanvasLayerPauseMenu" instance=ExtResource("7_quc8o")]
 process_mode = 3
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayerFinDeJeu" type="CanvasLayer" parent="."]
 
-[node name="fin_de_jeu" parent="CanvasLayer2" instance=ExtResource("8_xqhvm")]
+[node name="fin_de_jeu" parent="CanvasLayerFinDeJeu" instance=ExtResource("8_xqhvm")]
 visible = false
 
 [node name="ScoreControl" type="Control" parent="."]
@@ -163,6 +164,10 @@ text = "0
 
 [node name="celebrationBut" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_w53cw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DebugOverlay" parent="CanvasLayer" instance=ExtResource("10_bp8ac")]
 
 [connection signal="area_entered" from="ButPlayer" to="." method="_on_but_player_area_entered"]
 [connection signal="area_exited" from="ButPlayer" to="." method="_on_but_player_area_exited"]
