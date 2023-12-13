@@ -677,7 +677,7 @@ texture = ExtResource("7_6468g")
 [node name="Direction" type="Label" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "                                      Côntroler joueur
+text = "                                      Déplacer joueur
 "
 
 [node name="Direction" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Direction"]
