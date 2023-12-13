@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4w3p1w65gipi"]
+[gd_scene load_steps=12 format=3 uid="uid://c4w3p1w65gipi"]
 
 [ext_resource type="Script" path="res://adversaire.gd" id="1_jjv1b"]
 [ext_resource type="Texture2D" uid="uid://clnwswj1oeidc" path="res://Asset/my_players.png" id="1_r5uc3"]
+[ext_resource type="AudioStream" uid="uid://cljq7e8krpbx8" path="res://Musique/tir.mp3" id="3_uutuf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3x31"]
 size = Vector2(7, 10)
@@ -98,3 +99,6 @@ frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_50270")
+
+[node name="tirAdversaire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uutuf")

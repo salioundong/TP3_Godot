@@ -3,7 +3,7 @@ extends Control
 @onready var options = $Options
 @onready var video = $Video
 @onready var audio = $Audio
-
+@onready var controles = $Controles
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MarginContainer/Menu/StartButton.grab_focus()
@@ -28,34 +28,39 @@ func _on_quick_options_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
 
-
-func _on_settings_button_pressed():
-	show_and_hide(options, menu)
-	
 func show_and_hide(first, second):
 	first.show()
 	second.hide()	
+	
+func _on_settings_button_pressed():
+	show_and_hide(options, menu)
 
 func _on_video_pressed():
 	show_and_hide(video, options)
 
-
 func _on_audio_pressed():
 	show_and_hide(audio, options)
-
 
 func _on_back_option_pressed():
 	show_and_hide(menu, options)
 
+func _on_back_video_pressed():
+	show_and_hide(options, video)
+
+func _on_back_audio_pressed():
+	show_and_hide(options, audio)
+
+func _on_controles_button_pressed():
+	show_and_hide(controles, menu)
+
+func _on_backcontroles_pressed():
+	show_and_hide(menu, controles)
+	
 func _on_full_screen_toggled(button_pressed):
 	if button_pressed == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-func _on_back_video_pressed():
-	show_and_hide(options, video)
-
 
 func _on_master_value_changed(value):
 	volume(0, value)
@@ -63,6 +68,3 @@ func _on_master_value_changed(value):
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)	
 
-
-func _on_back_audio_pressed():
-	show_and_hide(options, audio)

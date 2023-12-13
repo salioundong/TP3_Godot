@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://botojytb3hmev"]
+[gd_scene load_steps=11 format=3 uid="uid://botojytb3hmev"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ayidp"]
 [ext_resource type="Texture2D" uid="uid://clnwswj1oeidc" path="res://Asset/my_players.png" id="3_c2mfs"]
+[ext_resource type="AudioStream" uid="uid://cljq7e8krpbx8" path="res://Musique/tir.mp3" id="3_o1uyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ybe7"]
 size = Vector2(2.5, 4.5)
@@ -97,3 +98,6 @@ texture = ExtResource("3_c2mfs")
 hframes = 4
 vframes = 6
 frame = 1
+
+[node name="tirBut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o1uyd")

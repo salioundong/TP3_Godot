@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 @export var speed = 20
 @export var push_force = 1.0
-var shoot_force: float = 500.0 
+var shoot_force: float = 200.0 
 var shoot_force_multiplier: float = 2.0 
 var max_distance_for_shoot: float = 50.0  
 
 @onready var animation = $AnimationPlayer
-
+@onready var tirBut = $tirBut
 var direction = Vector2.ZERO
 
 var tir = false
-var tir_delai = 5
+var tir_delai = 3
 var tir_temps = 0
 
 func _physics_process(delta):
@@ -29,17 +29,17 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)
 		if c.get_collider() is Ballon:
 			if tir and global_position.distance_to(c.get_collider().global_position) < max_distance_for_shoot:
-				print('space')
 				var tir_force = velocity.normalized() * shoot_force * shoot_force_multiplier
 				c.get_collider().apply_impulse(tir_force)
 				tir = false
-			else:	
+			else:
 				c.get_collider().apply_impulse(velocity * push_force)
 				print(velocity)
 	move_and_slide()
 
-	if Input.is_action_just_pressed("tirer"):
+	if Input.is_action_just_pressed("tirer"):	
 		tir = true
+		tirBut.play()
 
 	update_animation()
 	if direction != Vector2.ZERO:

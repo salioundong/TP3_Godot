@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcyb0o4q71p01"]
+[gd_scene load_steps=10 format=3 uid="uid://bcyb0o4q71p01"]
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_ip7ai"]
 [ext_resource type="AudioStream" uid="uid://cbv6uc0fssvoo" path="res://Musique/Shakira - Waka Waka (This Time for Africa) (The Official 2010 FIFA World Cup Song).mp3" id="2_idxge"]
 [ext_resource type="Texture2D" uid="uid://b54513gb8d673" path="res://Asset/stade.jpg" id="2_rjeo4"]
+[ext_resource type="Texture2D" uid="uid://dflxddwriodkr" path="res://Asset/esc.png" id="4_u6jxe"]
+[ext_resource type="Texture2D" uid="uid://8nb1p58nw53m" path="res://Asset/espace.png" id="5_gtmlv"]
+[ext_resource type="Texture2D" uid="uid://dr1fxxlqa76yv" path="res://Asset/shift.jpg" id="6_ifeaa"]
+[ext_resource type="Texture2D" uid="uid://c1su4dcst12uq" path="res://Asset/Q.png" id="7_6468g"]
+[ext_resource type="Texture2D" uid="uid://bfdk0jbv5gwdr" path="res://Asset/direction.png" id="8_o53q8"]
 
 [sub_resource type="FontFile" id="FontFile_fqhsq"]
 cache/0/16/0/ascent = 0.0
@@ -442,12 +447,20 @@ position = Vector2(29.0001, 24.5)
 scale = Vector2(1.67969, 1.37749)
 texture = ExtResource("2_rjeo4")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -218.0
+offset_top = -32.0
+offset_right = 324.0
+offset_bottom = 188.0
+color = Color(0, 0.360784, 0.376471, 0.360784)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = -22.0
 offset_top = -3.0
 offset_right = 99.0
-offset_bottom = 101.0
+offset_bottom = 150.0
 
 [node name="Menu" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -463,6 +476,10 @@ text = "Démarrer"
 [node name="SettingsButton" type="Button" parent="MarginContainer/Menu"]
 layout_mode = 2
 text = "Paramètres"
+
+[node name="ControlesButton" type="Button" parent="MarginContainer/Menu"]
+layout_mode = 2
+text = "Contrôles"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/Menu"]
 layout_mode = 2
@@ -509,7 +526,7 @@ offset_right = 59.0
 offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back"
+text = "Retour"
 
 [node name="Video" type="Control" parent="."]
 visible = false
@@ -545,13 +562,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 100.0
-offset_right = 61.0
-offset_bottom = 131.0
+offset_left = 6.0
+offset_top = 132.0
+offset_right = 67.0
+offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back"
+text = "Retour"
 
 [node name="Audio" type="Control" parent="."]
 visible = false
@@ -566,48 +583,124 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.24)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Audio"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
+layout_mode = 2
+offset_left = -40.0
+offset_top = 22.0
+offset_right = 129.0
+offset_bottom = 48.0
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Audio/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Labels" type="VBoxContainer" parent="Audio/VBoxContainer/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="Audio/HBoxContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="Audio/VBoxContainer/HBoxContainer/Labels"]
+[node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Volume"
 
-[node name="Slider" type="VBoxContainer" parent="Audio/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(78, 12)
+[node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
+custom_minimum_size = Vector2(78, 10)
 layout_mode = 2
 
-[node name="Master" type="HSlider" parent="Audio/VBoxContainer/HBoxContainer/Slider"]
+[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 z_as_relative = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 2
 ticks_on_borders = true
 
-[node name="BackAudio" type="Button" parent="Audio/VBoxContainer"]
+[node name="BackAudio" type="Button" parent="Audio"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 0
-text = "Back"
+offset_left = 2.0
+offset_top = 104.839
+offset_right = 70.0
+offset_bottom = 134.839
+theme_override_font_sizes/font_size = 15
+text = "Retour"
+
+[node name="Controles" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Controles"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -4.0
+offset_right = 284.0
+offset_bottom = 152.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Controles/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controles/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Pause" type="Label" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "                                      Pause"
+
+[node name="Esc" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Pause"]
+position = Vector2(21.5, 14.4375)
+scale = Vector2(0.244445, 0.138334)
+texture = ExtResource("4_u6jxe")
+
+[node name="Tir" type="Label" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "                                      Tirer"
+
+[node name="Espace" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Tir"]
+position = Vector2(18, 15)
+scale = Vector2(0.133928, 0.258929)
+texture = ExtResource("5_gtmlv")
+
+[node name="Quitter" type="Label" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "          +                          Quitter"
+
+[node name="Shift" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Quitter"]
+position = Vector2(23.4817, 14)
+scale = Vector2(0.173886, 0.131856)
+texture = ExtResource("6_ifeaa")
+
+[node name="Q" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Quitter"]
+position = Vector2(90, 16)
+scale = Vector2(0.142222, 0.151111)
+texture = ExtResource("7_6468g")
+
+[node name="Direction" type="Label" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "                                      Côntroler joueur
+"
+
+[node name="Direction" type="Sprite2D" parent="Controles/MarginContainer/ScrollContainer/VBoxContainer/Direction"]
+position = Vector2(24, 15)
+scale = Vector2(0.195555, 0.16)
+texture = ExtResource("8_o53q8")
+
+[node name="Backcontroles" type="Button" parent="Controles"]
+layout_mode = 0
+offset_top = 146.0
+offset_right = 61.0
+offset_bottom = 177.0
+text = "Retour"
 
 [connection signal="pressed" from="MarginContainer/Menu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu/ControlesButton" to="." method="_on_controles_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu/QuitButton" to="." method="_on_quick_options_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="Options/BackOption" to="." method="_on_back_option_pressed"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/FullScreen" to="." method="_on_full_screen_toggled"]
 [connection signal="pressed" from="Video/BackVideo" to="." method="_on_back_video_pressed"]
-[connection signal="value_changed" from="Audio/VBoxContainer/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
-[connection signal="pressed" from="Audio/VBoxContainer/BackAudio" to="." method="_on_back_audio_pressed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
+[connection signal="pressed" from="Audio/BackAudio" to="." method="_on_back_audio_pressed"]
+[connection signal="pressed" from="Controles/Backcontroles" to="." method="_on_backcontroles_pressed"]

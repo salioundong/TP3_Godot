@@ -6,15 +6,47 @@ var minute = 1
 
 var butJoueur = 0
 var butAdversaire = 0
-@onready var ballon = Ballon	
+
+@onready var ballon = $Ballon
+@onready var joueur = $Player
+@onready var adversaire = $Adversaire
+
+@onready var scorePlayer = $ScoreControlPlayer/ScorePlayer
+@onready var scoreAdversaire = $ScoreControlAdversaire/ScoreAdversaire
+@onready var celebration = $celebrationBut
+
+var ballonStartPosition : Vector2
+var joueurStartPosition : Vector2
+var adversaireStartPosition : Vector2
+var joueurDernierBut = false
+var adversaireDernierBut = false	
 
 func _process(_delta):
 	if Input.is_action_just_pressed("cheat"):
 		$Control/Timer2.stop()
 		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
+		
 
 func _ready():
-	$Control/Timer2.start()	
+	butAdversaire = GameController.getButAdversaire()
+	butJoueur = GameController.getButJoueur()
+	minute = GameController.getMinute()
+	sec = GameController.getSec()
+
+	
+	scorePlayer.text = str(butAdversaire)
+	scoreAdversaire.text = str(butJoueur)
+	
+	
+	if(butAdversaire != 0 || butJoueur != 0):
+		celebration.play()
+		
+	if(butAdversaire == 3 || butJoueur == 3):
+		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
+		
+	$Control/Timer2.start()
+	$Control/Timer.text = str(minute) + ":" + str(sec)
+	
 	pass
 
 func game_time():
@@ -34,13 +66,34 @@ func _on_timer_timeout():
 	game_time()
 	pass # Replace with function body.
 
+func replay_scene():
+	print("Replaying scene...")
 
+	GameController.setButAdversaire(butAdversaire)
+	GameController.setButJoueur(butJoueur)
+	GameController.setMinute(minute)
+	GameController.setSec(sec)
+	
+	get_tree().reload_current_scene()
+	
 func _on_but_player_area_entered(_body):
-	butAdversaire += 1
-	$ScoreControlAdversaire/ScoreAdversaire.text = str(butAdversaire)
-
+	if not joueurDernierBut:
+		butAdversaire += 1
+		joueurDernierBut = true
+		adversaireDernierBut = false
+		replay_scene()
 
 
 func _on_but_adversaire_area_entered(_body):
-	butJoueur += 1
-	$ScoreControlPlayer/ScorePlayer.text = str(butJoueur)
+	if not adversaireDernierBut:
+		butJoueur += 1
+		adversaireDernierBut = true
+		joueurDernierBut = false
+		replay_scene()
+
+		
+func _on_but_adversaire_area_exited(_body):
+	adversaireDernierBut =  false
+
+func _on_but_player_area_exited(_body):
+	joueurDernierBut = false	

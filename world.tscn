@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqtxug2mo8nc4"]
+[gd_scene load_steps=14 format=3 uid="uid://cqtxug2mo8nc4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_jsw0v"]
 [ext_resource type="Texture2D" uid="uid://ddmede3qsvy3t" path="res://Asset/terrain.png" id="1_k5lrj"]
@@ -8,16 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://c4w3p1w65gipi" path="res://adversaire.tscn" id="5_3y5tl"]
 [ext_resource type="PackedScene" uid="uid://t2ob1gqccyas" path="res://pause_menu.tscn" id="7_quc8o"]
 [ext_resource type="PackedScene" uid="uid://cryn04buh1qqg" path="res://fin_de_jeu.tscn" id="8_xqhvm"]
+[ext_resource type="AudioStream" uid="uid://cg8yn7jfs6qpq" path="res://Musique/celebration.mp3" id="9_w53cw"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_x0gst"]
+a = Vector2(290.745, 2.64056)
+b = Vector2(9.25449, 1.76037)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kn70s"]
 shader = ExtResource("4_lym22")
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_en3xl"]
-length = 30.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rtdfa"]
+a = Vector2(51.0396, -6.23847)
+b = Vector2(51.0396, 21.8176)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_140pt"]
-a = Vector2(-2, -16)
-b = Vector2(-2, 15)
+a = Vector2(-0.990082, -14.0281)
+b = Vector2(-0.990082, 13.0261)
 
 [node name="World" type="Node2D"]
 scale = Vector2(1.01, 0.998)
@@ -27,6 +33,13 @@ script = ExtResource("1_jsw0v")
 scale = Vector2(1.28383, 1.1384)
 texture = ExtResource("1_k5lrj")
 centered = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Terrain"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/RigidBody2D"]
+position = Vector2(2.38419e-07, -0.880185)
+shape = SubResource("SegmentShape2D_x0gst")
 
 [node name="Ballon" parent="." instance=ExtResource("3_3dmg3")]
 position = Vector2(193.069, 109.218)
@@ -47,17 +60,19 @@ offset_right = 124.0
 offset_bottom = 33.0
 
 [node name="ButPlayer" type="Area2D" parent="."]
-position = Vector2(55.4455, 100.2)
+position = Vector2(4.9505, 108.216)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButPlayer"]
 position = Vector2(-44.1089, -6.78758)
-shape = SubResource("SeparationRayShape2D_en3xl")
+shape = SubResource("SegmentShape2D_rtdfa")
+one_way_collision_margin = 20.5
 
 [node name="ButAdversaire" type="Area2D" parent="."]
 position = Vector2(386.139, 113.226)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButAdversaire"]
-position = Vector2(-10, -3)
+position = Vector2(-11.8816, -4.00757)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("SegmentShape2D_140pt")
 
 [node name="Control" type="Control" parent="."]
@@ -146,6 +161,11 @@ offset_bottom = 35.0
 text = "0
 "
 
+[node name="celebrationBut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_w53cw")
+
 [connection signal="area_entered" from="ButPlayer" to="." method="_on_but_player_area_entered"]
+[connection signal="area_exited" from="ButPlayer" to="." method="_on_but_player_area_exited"]
 [connection signal="area_entered" from="ButAdversaire" to="." method="_on_but_adversaire_area_entered"]
+[connection signal="area_exited" from="ButAdversaire" to="." method="_on_but_adversaire_area_exited"]
 [connection signal="timeout" from="Control/Timer2" to="." method="_on_timer_timeout"]
