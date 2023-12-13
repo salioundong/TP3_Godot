@@ -2,7 +2,7 @@
 
 > Un jeu de Saliou Ndong
 
-Ayant toujours eu un intérêt particulier pour le soccer, j'ai décidé de faire ce jeu et d'y présenter quelques concepts dans ce domaine. Le but est de contrôler le ballon et de faire des buts. Il y'a un adversaire qui essaie lui aussi de faire des buts. Une partie dure `02 minutes` et le premier qui réussit à faire `3 buts` gagne la partie.
+Ayant toujours eu un intérêt particulier pour le soccer, j'ai décidé de faire ce jeu et d'y présenter quelques concepts dans ce domaine. L'objectif principal du jeu est de faire des buts mais c'est je joueur qui controle le ballon pour pouvoir faire des buts. Il y'a un adversaire qui essaie lui aussi de faire des buts. Une partie dure `02 minutes` et le premier qui réussit à faire `3 buts` gagne la partie.
 
 ## Contrôle du ballon
 Dans le concept du soccer, le ballon doit être libre et donc tous les joueurs peuvent y avoir accès. Je pensais trop compliqué au début en rattachant le ballon au joueur. C'est ainsi que mon professeur `Nicolas Bourre` m'a fait comprendre comment je pourrais m'y prendre.
@@ -10,7 +10,7 @@ Dans le concept du soccer, le ballon doit être libre et donc tous les joueurs p
 ![Alt text](image.png)
 
 ## Détection de but
-J'ai utilisé un Area2D avec un CollisionShape2D que j'ai mis au niveau des buts. Sachant que le balon est un RigidBody2D mais j'y est inclus aussi un Area2D avec un CollisionShape2D. Et donc, je vérifie si mes deux Area2D rentrent en collision. Si Oui, il y'a but
+J'ai utilisé un Area2D avec un CollisionShape2D que j'ai mis au niveau des buts. Sachant que le balon est un RigidBody2D mais j'y est inclus aussi un Area2D avec un CollisionShape2D. Et donc, je vérifie si mes deux Area2D rentrent en collision. Si Oui, il y'a but.
 
 ![Alt text](image-1.png)
 
