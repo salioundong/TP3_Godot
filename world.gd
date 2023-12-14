@@ -25,6 +25,7 @@ func _process(_delta):
 		$Control/Timer2.stop()
 		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
 	
+		
 	if ballon.position.x < 13.861 or ballon.position.x > 372.277:
 		replay_scene()
 	elif ballon.position.y <  3.006 or ballon.position.y > 213.427:	
@@ -36,7 +37,6 @@ func _ready():
 	minute = GameController.getMinute()
 	sec = GameController.getSec()
 
-	print(ballon.position.x)
 	
 	scorePlayer.text = str(butAdversaire)
 	scoreAdversaire.text = str(butJoueur)
@@ -44,10 +44,10 @@ func _ready():
 	
 	if(butAdversaire != 0 || butJoueur != 0):
 		celebration.play()
-		
-	if(butAdversaire == 3 || butJoueur == 3):
+	
+	if(butAdversaire == 3 or butJoueur == 3):
 		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
-		
+			
 	$Control/Timer2.start()
 	$Control/Timer.text = str(minute) + ":" + str(sec)
 	
@@ -68,10 +68,12 @@ func game_time():
 
 func _on_timer_timeout():
 	game_time()
+	
+	if sec == startTime - 1 and minute == 0:
+		$Control/Timer2.start()
 	pass # Replace with function body.
 
 func replay_scene():
-	print("Replaying scene...")
 
 	GameController.setButAdversaire(butAdversaire)
 	GameController.setButJoueur(butJoueur)

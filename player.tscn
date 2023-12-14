@@ -74,6 +74,7 @@ platform_floor_layers = 4278190083
 script = ExtResource("1_ayidp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, -0.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_2ybe7")

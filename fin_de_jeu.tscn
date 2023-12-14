@@ -65,5 +65,5 @@ layout_mode = 2
 text = "Quitter"
 
 [connection signal="pressed" from="GridContainer/button_rejouer" to="." method="_on_button_rejouer_pressed"]
-[connection signal="pressed" from="GridContainer/button_menu_principal" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/button_menu_principal" to="." method="_on_button_menu_principal_pressed"]
 [connection signal="pressed" from="GridContainer/button_quitter" to="." method="_on_button_quitter_pressed"]

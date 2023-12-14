@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 20
+@export var speed = 30
 @export var push_force = 1.0
 var shoot_force: float = 200.0 
 var shoot_force_multiplier: float = 2.0 
