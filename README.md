@@ -14,6 +14,12 @@ J'ai utilisé un Area2D avec un CollisionShape2D que j'ai mis au niveau des buts
 
 ![Alt text](image-1.png)
 
+## Godot-debug-overlay
+M'a permis d'afficher les informations internes de la machine utilisée par le jeu.
+Je me suis basé ici : [godot-debug-overlay](https://github.com/GammaGames/godot-debug-overlay/blob/master/addons/debug-overlay/DebugOverlay.gd)
+
+![Alt text](image-4.png)
+
 ## Sauvegarde de données
 
 C'est la partie qui m'a le plus marquée avec l'utilisation du `Singleton` qui est un outil utile pour résoudre le cas d'utilisation commun où l'on doit stocker des informations persistantes entre les scènes: [Godot Singleton Autoload](https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html)

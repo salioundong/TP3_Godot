@@ -3,7 +3,6 @@ extends Node2D
 var startTime = 60
 var sec = startTime
 var minute = 1
-
 var butJoueur = 0
 var butAdversaire = 0
 
@@ -25,14 +24,19 @@ func _process(_delta):
 	if Input.is_action_just_pressed("cheat"):
 		$Control/Timer2.stop()
 		get_tree().change_scene_to_file("res://fin_de_jeu.tscn")
+	
+	if ballon.position.x < 13.861 or ballon.position.x > 372.277:
+		replay_scene()
+	elif ballon.position.y <  3.006 or ballon.position.y > 213.427:	
+		replay_scene()
 		
-
 func _ready():
 	butAdversaire = GameController.getButAdversaire()
 	butJoueur = GameController.getButJoueur()
 	minute = GameController.getMinute()
 	sec = GameController.getSec()
 
+	print(ballon.position.x)
 	
 	scorePlayer.text = str(butAdversaire)
 	scoreAdversaire.text = str(butJoueur)

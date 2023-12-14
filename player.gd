@@ -34,7 +34,6 @@ func _physics_process(delta):
 				tir = false
 			else:
 				c.get_collider().apply_impulse(velocity * push_force)
-				print(velocity)
 	move_and_slide()
 
 	if Input.is_action_just_pressed("tirer"):	

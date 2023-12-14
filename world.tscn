@@ -19,8 +19,8 @@ b = Vector2(9.25449, 1.76037)
 shader = ExtResource("4_lym22")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rtdfa"]
-a = Vector2(51.0396, -6.23847)
-b = Vector2(51.0396, 21.8176)
+a = Vector2(51.0396, -3.23246)
+b = Vector2(51.0396, 19.8136)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_140pt"]
 a = Vector2(-0.990082, -14.0281)
@@ -43,7 +43,7 @@ position = Vector2(2.38419e-07, -0.880185)
 shape = SubResource("SegmentShape2D_x0gst")
 
 [node name="Ballon" parent="." instance=ExtResource("3_3dmg3")]
-position = Vector2(193.069, 109.218)
+position = Vector2(193.069, 108.216)
 
 [node name="Player" parent="." instance=ExtResource("2_d4fdg")]
 material = SubResource("ShaderMaterial_kn70s")
@@ -96,6 +96,17 @@ text = "02 : 00"
 
 [node name="PauseMenu" parent="CanvasLayerPauseMenu" instance=ExtResource("7_quc8o")]
 process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -803.0
+offset_top = -401.0
+offset_right = -803.0
+offset_bottom = -401.0
+scale = Vector2(1, 1)
 
 [node name="CanvasLayerFinDeJeu" type="CanvasLayer" parent="."]
 
