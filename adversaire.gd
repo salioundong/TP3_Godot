@@ -16,7 +16,7 @@ var tir_delai = 3
 var tir_temps = 0
 
 func _physics_process(delta):
-	#update_movement(delta)
+	update_movement(delta)
 	check_shoot_conditions(delta)
 
 func update_movement(delta):
